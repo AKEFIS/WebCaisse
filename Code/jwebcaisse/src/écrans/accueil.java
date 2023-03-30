@@ -8,12 +8,12 @@ package écrans;
  *
  * @author c.denys
  */
-public class accueil extends javax.swing.JFrame {
+public class Accueil extends javax.swing.JFrame {
 
     /**
      * Creates new form accueil
      */
-    public accueil() {
+    public Accueil() {
         initComponents();
     }
 
@@ -38,18 +38,25 @@ public class accueil extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(700, 530));
         setMinimumSize(new java.awt.Dimension(700, 530));
         setPreferredSize(new java.awt.Dimension(700, 530));
         setResizable(false);
+        getContentPane().setLayout(null);
 
         jTextPane1.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue non libero et ultrices. Cras faucibus euismod augue. Aliquam sit amet placerat elit. Aliquam ex arcu, iaculis at ex sed, semper tincidunt lorem. Aliquam placerat neque justo, nec auctor ex maximus id. Fusce eu bibendum justo. Fusce ac est vitae odio congue elementum eu dictum ante. Nam ac eros at odio consequat egestas ac eu mi. Sed gravida elit et ex interdum, ut accumsan nisi eleifend. Duis et tellus scelerisque, dictum nulla eu, volutpat dui. Donec massa odio, aliquet in ornare a, pharetra placerat arcu. Vestibulum tristique vulputate eros eu porta. Integer sed viverra nunc, et auctor dui. Phasellus posuere quam ut justo viverra, quis pharetra ligula varius.\n\nNunc sit amet lectus turpis. Suspendisse tincidunt vitae nulla id consequat. Morbi laoreet eleifend nulla at blandit. Sed vulputate aliquam erat, sit amet placerat mi. Sed eget ornare ex. Integer tristique purus ut tellus consectetur, id dapibus lacus fermentum. Quisque vestibulum elit elit, interdum semper est gravida in. Ut tortor turpis, porta eu placerat quis, sollicitudin malesuada felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum auctor dui lectus, id congue orci dapibus sit amet. In condimentum lorem eget orci luctus, euismod iaculis nisi tristique. Duis id congue orci. Sed pharetra nulla eu metus sollicitudin, vitae consectetur sem blandit. Sed at enim suscipit, lobortis nunc in, sollicitudin est. Proin mollis lectus a tortor condimentum pulvinar.");
         jScrollPane1.setViewportView(jTextPane1);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(10, 130, 680, 390);
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Accueil");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(10, 100, 90, 28);
 
         jButton1.setText("Changer de formule");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -57,89 +64,47 @@ public class accueil extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(450, 60, 230, 30);
 
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jButton2.setText("Se déconnecter");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(170, 20, 110, 20);
 
-        jButton3.setText("Choisir une formule");
+        jButton3.setText("Acheter une formule");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(450, 20, 230, 30);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Nom d'utilisateur");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(50, 20, 110, 16);
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(418, 390, 0, 0);
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 0, 0, 0);
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(499, 421, 0, 0);
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(560, 50, 0, 0);
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(1243, 390, 0, 100);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\c.denys\\Downloads\\WebCaisse-main\\Ressources\\Logo\\Logo_WebCaisse-removebg-preview.png")); // NOI18N
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\c.denys\\Downloads\\WebCaisse-main\\Code\\jwebcaisse\\src\\ressources\\default-user-image-2.png")); // NOI18N
-
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\c.denys\\Downloads\\WebCaisse-main\\Ressources\\Logo\\NF-removebg-preview.png")); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2)
-                        .addGap(81, 81, 81)
-                        .addComponent(jLabel5)
-                        .addGap(379, 379, 379)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel6)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel3)
-                        .addGap(4, 4, 4)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel5))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/user-img_20.png"))); // NOI18N
+        jLabel8.setMaximumSize(new java.awt.Dimension(20, 22));
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(30, 20, 18, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -173,20 +138,21 @@ public class accueil extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new accueil().setVisible(true);
+                new Accueil().setVisible(true);
             }
         });
     }
@@ -202,6 +168,7 @@ public class accueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
