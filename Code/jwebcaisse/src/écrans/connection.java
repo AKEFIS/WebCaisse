@@ -82,7 +82,7 @@ public class Connection extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(260, 140, 151, 190);
+        jPanel2.setBounds(260, 140, 163, 190);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
