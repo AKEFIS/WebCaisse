@@ -87,7 +87,7 @@ public class Accueil extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Nom d'utilisateur");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(50, 20, 110, 16);
+        jLabel3.setBounds(50, 20, 110, 15);
         getContentPane().add(jLabel2);
         jLabel2.setBounds(418, 390, 0, 0);
         getContentPane().add(jLabel4);
