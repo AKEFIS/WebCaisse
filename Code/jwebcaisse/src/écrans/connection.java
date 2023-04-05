@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ecrans;
+package écrans;
 
 /**
  *
@@ -82,6 +82,7 @@ public class Connection extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
+<<<<<<< HEAD:Code/jwebcaisse/src/ecrans/Connection.java
         jPanel2.setBounds(260, 140, 151, 190);
 <<<<<<< HEAD:Code/jwebcaisse/src/ecrans/Connection.java
 =======
@@ -95,6 +96,9 @@ public class Connection extends javax.swing.JFrame {
         getContentPane().add(jButton3);
         jButton3.setBounds(10, 10, 110, 22);
 >>>>>>> main:Code/jwebcaisse/src/écrans/Connection.java
+=======
+        jPanel2.setBounds(260, 140, 0, 190);
+>>>>>>> parent of 86c29cb (build):Code/jwebcaisse/src/écrans/connection.java
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

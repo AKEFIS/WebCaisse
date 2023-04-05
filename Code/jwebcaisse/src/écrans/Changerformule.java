@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ecrans;
+package écrans;
 
 /**
  *
@@ -55,7 +55,9 @@ public class Changerformule extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(700, 530));
         setMinimumSize(new java.awt.Dimension(700, 530));
+        setPreferredSize(new java.awt.Dimension(700, 530));
         setResizable(false);
 
         jTextArea3.setColumns(10);
