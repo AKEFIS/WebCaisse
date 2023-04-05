@@ -44,9 +44,7 @@ public class Accueil extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(700, 530));
         setMinimumSize(new java.awt.Dimension(700, 530));
-        setPreferredSize(new java.awt.Dimension(700, 530));
         setResizable(false);
         getContentPane().setLayout(null);
 
