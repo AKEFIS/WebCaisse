@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package écrans;
+package ecrans;
 
 /**
  *
@@ -87,7 +87,7 @@ public class Accueil extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Nom d'utilisateur");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(50, 20, 110, 15);
+        jLabel3.setBounds(50, 20, 110, 16);
         getContentPane().add(jLabel2);
         jLabel2.setBounds(418, 390, 0, 0);
         getContentPane().add(jLabel4);
