@@ -41,9 +41,7 @@ public class Accueil extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(700, 530));
         setMinimumSize(new java.awt.Dimension(700, 530));
-        setPreferredSize(new java.awt.Dimension(700, 530));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -89,7 +87,7 @@ public class Accueil extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Nom d'utilisateur");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(50, 20, 110, 15);
+        jLabel3.setBounds(50, 20, 110, 16);
         getContentPane().add(jLabel2);
         jLabel2.setBounds(418, 390, 0, 0);
         getContentPane().add(jLabel4);

@@ -63,11 +63,11 @@ public class ConfigDAO implements ConfigDAOInterface {
             c.setMailUser("mailflex@st2msi.net");
             c.setMailPass("uOBtCU5pdL!Y");
             c.setSgbdSys("mysql");//postgresql
-            c.setSgbdHost("localhost");
+            c.setSgbdHost("mysql-webcaisse.alwaysdata.net");
             c.setSgbdPort("3306");
-            c.setSgbdDb("gestion_utilisateur");
-            c.setSgbdUser("mysql");//pgsql
-            c.setSgbdPass("azerty");
+            c.setSgbdDb("webcaisse_ap2");
+            c.setSgbdUser("webcaisse");//pgsql
+            c.setSgbdPass("Btssio82300");
             saveXMLFile(c);
     }
 
