@@ -27,7 +27,8 @@ public class Utilisateur {
         this.utAdr2 = utAdr2;
         this.utCommune = utCommune;
     }
-public void updateUtMp(String utMp) {
+
+    public void updateUtMp(String utMp) {
         if (utMp != this.utMp) {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(BCryptPasswordEncoder.BCryptVersion.$2B, 12);
             this.utMp = utMp;
@@ -72,7 +73,6 @@ public void updateUtMp(String utMp) {
         this.utMp = utMp;
     }
 
-    
     public String getUtMail() {
         return utMail;
     }
@@ -112,6 +112,7 @@ public void updateUtMp(String utMp) {
     public void setUtCommune(Commune utCommune) {
         this.utCommune = utCommune;
     }
+
     public boolean verifPass(char[] pass) {
         String pwd = new String(pass);
         BCryptPasswordEncoder passwordEcorder = new BCryptPasswordEncoder();
