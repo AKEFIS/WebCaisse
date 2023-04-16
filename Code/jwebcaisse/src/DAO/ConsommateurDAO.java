@@ -8,12 +8,7 @@ import technic.ConnectDB;
 public class ConsommateurDAO {
 
     // Paramètres de connexion à la base de données
-    private ConnectDB connectDB;
-
-    // Constructeur
-    public ConsommateurDAO(ConnectDB connectDB) {
-        this.connectDB = connectDB;
-    }
+    private ConnectDB connectDB = new ConnectDB();
 
     // Méthode de création d'un consommateur dans la table Consommateur
     public void create(Consommateur consommateur) {
@@ -86,7 +81,7 @@ public class ConsommateurDAO {
         }
     }
 
-// Méthode de suppression d'un consommateur de la table Consommateur
+    // Méthode de suppression d'un consommateur de la table Consommateur
     public void delete(int idConsommateur) {
         String sql = "DELETE FROM Consommateur WHERE IDConsommateur = ?";
 
@@ -100,7 +95,7 @@ public class ConsommateurDAO {
         }
     }
 
-// Méthode de récupération de tous les consommateurs de la table Consommateur
+    // Méthode de récupération de tous les consommateurs de la table Consommateur
     public List<Consommateur> getAllConsommateur() {
         List<Consommateur> consommateurs = new ArrayList<>();
         String sql = "SELECT * FROM Consommateur";

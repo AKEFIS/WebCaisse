@@ -8,12 +8,7 @@ import technic.ConnectDB;
 public class ClientDAO {
 
     // Paramètres de connexion à la base de données
-    private ConnectDB connectDB;
-
-    // Constructeur
-    public ClientDAO(ConnectDB connectDB) {
-        this.connectDB = connectDB;
-    }
+    private ConnectDB connectDB = new ConnectDB();
 
     // Méthode de création d'un client dans la table Client
     public void create(Client client) {

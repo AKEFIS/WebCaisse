@@ -6,16 +6,11 @@ import model.FormuleFidelisation;
 import technic.ConnectDB;
 
 public class FormuleFidelisationDAO {
-// Paramètres de connexion à la base de données
+    
+    // Paramètres de connexion à la base de données
+    private ConnectDB connectDB = new ConnectDB();
 
-    private ConnectDB connectDB;
-
-// Constructeur
-    public FormuleFidelisationDAO(ConnectDB connectDB) {
-        this.connectDB = connectDB;
-    }
-
-// Méthode de création d'une formule de fidélisation dans la table FormuleFidelisation
+    // Méthode de création d'une formule de fidélisation dans la table FormuleFidelisation
     public void create(FormuleFidelisation formuleFidelisation) {
         String sql = "INSERT INTO FormuleFidelisation (NomFormuleFidelisation, DescriptionFormuleFidelisation) "
                 + "VALUES (?, ?)";
@@ -31,7 +26,7 @@ public class FormuleFidelisationDAO {
         }
     }
 
-// Méthode de lecture d'une formule de fidélisation à partir de son ID
+    // Méthode de lecture d'une formule de fidélisation à partir de son ID
     public FormuleFidelisation read(int idFormuleFidelisation) {
         FormuleFidelisation formuleFidelisation = null;
         String sql = "SELECT * FROM FormuleFidelisation WHERE IDFormuleFidelisation = ?";
@@ -56,7 +51,7 @@ public class FormuleFidelisationDAO {
         return formuleFidelisation;
     }
 
-// Méthode de mise à jour d'une formule de fidélisation dans la table FormuleFidelisation
+    // Méthode de mise à jour d'une formule de fidélisation dans la table FormuleFidelisation
     public void update(FormuleFidelisation formuleFidelisation) {
         String sql = "UPDATE FormuleFidelisation SET NomFormuleFidelisation = ?, DescriptionFormuleFidelisation = ? WHERE IDFormuleFidelisation = ?";
 
@@ -72,7 +67,7 @@ public class FormuleFidelisationDAO {
         }
     }
 
-// Méthode de suppression d'une formule de fidélisation de la table FormuleFidelisation
+    // Méthode de suppression d'une formule de fidélisation de la table FormuleFidelisation
     public void delete(FormuleFidelisation formuleFidelisation) {
         String sql = "DELETE FROM FormuleFidelisation WHERE IDFormuleFidelisation = ?";
 
@@ -86,7 +81,7 @@ public class FormuleFidelisationDAO {
         }
     }
 
-// Méthode de récupération de toutes les formules de fidélisation de la table FormuleFidelisation
+    // Méthode de récupération de toutes les formules de fidélisation de la table FormuleFidelisation
     public List<FormuleFidelisation> getAllFormuleFidelisation() {
         List<FormuleFidelisation> formulesFidelisation = new ArrayList<>();
         String sql = "SELECT * FROM FormuleFidelisation";

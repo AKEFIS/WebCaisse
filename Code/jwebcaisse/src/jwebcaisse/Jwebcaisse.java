@@ -1,6 +1,8 @@
 package jwebcaisse;
 import java.sql.*;
 import technic.ConnectDB;
+import DAO.*;
+import model.*;
 
 /**
  *
@@ -32,6 +34,13 @@ public class Jwebcaisse {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
+        // Test read Client
+        Client test = new Client();
+        ClientDAO testDAO = new ClientDAO();
+        test = testDAO.read(1);
+        System.out.println(test.getPrenom());
+        
     }
     
 }

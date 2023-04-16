@@ -15,6 +15,10 @@ public class Client {
     private String villeSiegeSocial;
 
     // Constructeur par défaut
+    public Client() {
+    }
+
+    // Constructeur
     public Client(int idClient, String nom, String prenom, String adresseMail, String motDePasse, String adresse, int codePostal, String ville, String adresseSiegeSocial, int codePostalSiegeSocial, String villeSiegeSocial) {
         this.idClient = idClient;
         this.nom = nom;

@@ -7,12 +7,10 @@ import technic.ConnectDB;
 
 public class PointDeVenteDAO {
 
-    private ConnectDB connectDB;
+    // Paramètres de connexion à la base de données
+    private ConnectDB connectDB = new ConnectDB();
 
-    public PointDeVenteDAO(ConnectDB connectDB) {
-        this.connectDB = connectDB;
-    }
-
+    // Méthode de création d'un point de vente dans la table PointDeVente
     public void create(PointDeVente pointDeVente) {
         String sql = "INSERT INTO PointDeVente (IDFormuleFidelisation, IDClient, Adresse, CodePostal, Ville, NomPointDeVente) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
@@ -32,6 +30,7 @@ public class PointDeVenteDAO {
         }
     }
 
+    // Méthode de lecture d'un point de vente à partir de son ID
     public PointDeVente read(int idPointDeVente) {
         PointDeVente pointDeVente = null;
         String sql = "SELECT * FROM PointDeVente WHERE IDPointDeVente = ?";
@@ -60,6 +59,7 @@ public class PointDeVenteDAO {
         return pointDeVente;
     }
 
+    // Méthode de mise à jour d'un point de vente dans la table PointDeVente
     public void update(PointDeVente pointDeVente) {
         String sql = "UPDATE PointDeVente SET IDFormuleFidelisation = ?, IDClient = ?, Adresse = ?, CodePostal = ?, Ville = ?, NomPointDeVente = ? WHERE IDPointDeVente = ?";
 
@@ -79,6 +79,7 @@ public class PointDeVenteDAO {
         }
     }
 
+    // Méthode de suppression d'un point de vente de la table PointDeVente
     public void delete(PointDeVente pointDeVente) {
         String sql = "DELETE FROM PointDeVente WHERE IDPointDeVente = ?";
 
@@ -92,6 +93,7 @@ public class PointDeVenteDAO {
         }
     }
 
+    // Méthode de récupération de tous les points de vente de la table PointDeVente
     public List<PointDeVente> getAllPointDeVente() {
         String sql = "SELECT * FROM PointDeVente";
         List<PointDeVente> pointsDeVente = new ArrayList<>();
