@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package technic;
 import java.sql.*;
-/**
- *
- * @author AKEFIS
- */
+
 public class ConnectDB {
     private Connection connection = null;
     private final String url = "jdbc:mysql://mysql-webcaisse.alwaysdata.net:3306/webcaisse_ap2";
