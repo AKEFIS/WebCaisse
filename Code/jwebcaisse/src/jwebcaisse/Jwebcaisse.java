@@ -1,13 +1,10 @@
 package jwebcaisse;
+
 import java.sql.*;
 import technic.ConnectDB;
 import DAO.*;
 import model.*;
 
-/**
- *
- * @author AKEFIS
- */
 public class Jwebcaisse {
 
     public static void main(String[] args) {
