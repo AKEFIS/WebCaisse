@@ -41,6 +41,11 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 530));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -49,13 +54,18 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
         jLabel1.setBounds(160, 40, 330, 28);
 
         LesPointsDeVente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        LesPointsDeVente.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                LesPointsDeVenteItemStateChanged(evt);
+            }
+        });
         LesPointsDeVente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LesPointsDeVenteActionPerformed(evt);
             }
         });
         getContentPane().add(LesPointsDeVente);
-        LesPointsDeVente.setBounds(210, 100, 72, 22);
+        LesPointsDeVente.setBounds(310, 100, 230, 22);
 
         jLabel2.setText("Sélectionner le point de vente");
         getContentPane().add(jLabel2);
@@ -64,21 +74,38 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LesPointsDeVenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LesPointsDeVenteActionPerformed
+    private void InitComboBox() {
         PointDeVenteDAO pointDeVenteDAO = new PointDeVenteDAO();
-        //List<PointDeVente> pointsDeVente = pointDeVenteDAO.getAllPointDeVenteByIDClient(client.getIdClient());
         List<PointDeVente> pointsDeVente = pointDeVenteDAO.getAllPointDeVenteByIDClient(client.getIdClient());
-
         int nbPointsDeVente = pointsDeVente.size();
-        LesPointsDeVente.removeAllItems();
         if (!pointsDeVente.isEmpty()) {
+            LesPointsDeVente.removeAllItems();
+            LesPointsDeVente.addItem("Choisissez un point de vente");
             for (int i = 0; nbPointsDeVente > i; i++) {
                 PointDeVente unPointDeVente;
                 unPointDeVente = pointsDeVente.get(i);
-                LesPointsDeVente.addItem(unPointDeVente.getNomPointDeVente());
+                LesPointsDeVente.addItem(unPointDeVente.getNomPointDeVente() + " | ID : " + unPointDeVente.getIdPointDeVente());
             }
         }
+    }
+
+    private void LesPointsDeVenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LesPointsDeVenteActionPerformed
+
     }//GEN-LAST:event_LesPointsDeVenteActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        InitComboBox();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void LesPointsDeVenteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_LesPointsDeVenteItemStateChanged
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            if (LesPointsDeVente.getSelectedItem() != "Choisissez un point de vente") {
+                System.out.println(LesPointsDeVente.getSelectedItem());
+                String myString = (String) LesPointsDeVente.getSelectedItem();
+                System.out.println(myString.charAt(myString.length() - 1));
+            }
+        }
+    }//GEN-LAST:event_LesPointsDeVenteItemStateChanged
 
     /**
      * @param args the command line arguments
