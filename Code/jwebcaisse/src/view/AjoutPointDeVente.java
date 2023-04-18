@@ -18,9 +18,8 @@ public class AjoutPointDeVente extends javax.swing.JFrame {
     /**
      * Creates new form connection
      */
-    
     private final Client client;
-    
+
     public AjoutPointDeVente(Client client) {
         this.client = client;
         initComponents();
@@ -175,7 +174,7 @@ public class AjoutPointDeVente extends javax.swing.JFrame {
         String nom = Nom.getText();
 
         // Création d'un objet PointDeVente
-        PointDeVente pointDeVente = new PointDeVente(0, 1, client.getIdClient(), adresse, codePostal, ville, nom);
+        PointDeVente pointDeVente = new PointDeVente(0, 0, client.getIdClient(), adresse, codePostal, ville, nom);
 
         // Insertion du point de vente dans la base de données
         try {

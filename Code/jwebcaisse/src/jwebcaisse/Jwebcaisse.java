@@ -3,6 +3,7 @@ package jwebcaisse;
 import java.sql.*;
 import technic.ConnectDB;
 import DAO.*;
+import java.util.List;
 import model.*;
 
 public class Jwebcaisse {
@@ -38,6 +39,15 @@ public class Jwebcaisse {
         test = testDAO.read(1);
         System.out.println(test.getPrenom());
         
+        /* Test getAllPointDeVenteByIDClient()
+        PointDeVenteDAO pointDeVenteDAO = new PointDeVenteDAO();
+        List lst = pointDeVenteDAO.getAllPointDeVente();
+        System.out.println(lst);*/
+        
+        // Test getAllPointDeVenteByIDClient()
+        PointDeVenteDAO pointDeVenteDAO = new PointDeVenteDAO();
+        List lst = pointDeVenteDAO.getAllPointDeVenteByIDClient(1);
+        System.out.println(lst);
     }
     
 }

@@ -47,7 +47,7 @@ public class Connection extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        AdresseMail.setText("Adresse mail");
+        AdresseMail.setText("maxime.curtil35@gmail.com");
         AdresseMail.setToolTipText("");
         AdresseMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,7 +55,7 @@ public class Connection extends javax.swing.JFrame {
             }
         });
 
-        MotDePasse.setText("Mot de passe");
+        MotDePasse.setText("root");
 
         Connection.setText("Connection");
         Connection.addActionListener(new java.awt.event.ActionListener() {

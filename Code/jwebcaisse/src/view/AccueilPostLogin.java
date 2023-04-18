@@ -37,9 +37,10 @@ public class AccueilPostLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         ChangerFormule = new javax.swing.JButton();
         Logout = new javax.swing.JButton();
-        AjoutPointDeVente = new javax.swing.JButton();
+        GestionPointsDeVente = new javax.swing.JButton();
         UserName = new javax.swing.JLabel();
         AchatFormule = new javax.swing.JButton();
+        AjoutPointDeVente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 530));
@@ -74,16 +75,16 @@ public class AccueilPostLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Logout);
-        Logout.setBounds(170, 20, 110, 20);
+        Logout.setBounds(50, 40, 110, 20);
 
-        AjoutPointDeVente.setText("Ajouter un point de vente");
-        AjoutPointDeVente.addActionListener(new java.awt.event.ActionListener() {
+        GestionPointsDeVente.setText("Gestion points de vente");
+        GestionPointsDeVente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AjoutPointDeVenteActionPerformed(evt);
+                GestionPointsDeVenteActionPerformed(evt);
             }
         });
-        getContentPane().add(AjoutPointDeVente);
-        AjoutPointDeVente.setBounds(200, 60, 230, 30);
+        getContentPane().add(GestionPointsDeVente);
+        GestionPointsDeVente.setBounds(210, 60, 230, 30);
 
         UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         UserName.setText(client.getNom() + " " + client.getPrenom());
@@ -99,6 +100,15 @@ public class AccueilPostLogin extends javax.swing.JFrame {
         getContentPane().add(AchatFormule);
         AchatFormule.setBounds(450, 20, 230, 30);
 
+        AjoutPointDeVente.setText("Ajouter un point de vente");
+        AjoutPointDeVente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AjoutPointDeVenteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(AjoutPointDeVente);
+        AjoutPointDeVente.setBounds(210, 20, 230, 30);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,15 +123,19 @@ public class AccueilPostLogin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_LogoutActionPerformed
 
-    private void AjoutPointDeVenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjoutPointDeVenteActionPerformed
-        AjoutPointDeVente ajoutPointDeVente = new AjoutPointDeVente(client);
-        ajoutPointDeVente.setVisible(true);
+    private void GestionPointsDeVenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionPointsDeVenteActionPerformed
+        GestionPointsDeVente gestionPointsDeVente = new GestionPointsDeVente(client);
+        gestionPointsDeVente.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_AjoutPointDeVenteActionPerformed
+    }//GEN-LAST:event_GestionPointsDeVenteActionPerformed
 
     private void AchatFormuleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AchatFormuleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AchatFormuleActionPerformed
+
+    private void AjoutPointDeVenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjoutPointDeVenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AjoutPointDeVenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,6 +188,7 @@ public class AccueilPostLogin extends javax.swing.JFrame {
     private javax.swing.JButton AchatFormule;
     private javax.swing.JButton AjoutPointDeVente;
     private javax.swing.JButton ChangerFormule;
+    private javax.swing.JButton GestionPointsDeVente;
     private javax.swing.JButton Logout;
     private javax.swing.JLabel UserName;
     private javax.swing.JLabel jLabel1;
