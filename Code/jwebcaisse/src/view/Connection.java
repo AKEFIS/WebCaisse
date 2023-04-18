@@ -148,8 +148,7 @@ public class Connection extends javax.swing.JFrame {
             if (rs.next()) {
                 // Identifiants corrects : ouverture de la fenêtre AccueilPostLogin
                 client = clientDAO.read(rs.getInt("IDClient"));
-                // AccueilPostLogin accueilPostLogin = new AccueilPostLogin(client);
-                AccueilPostLogin accueilPostLogin = new AccueilPostLogin();
+                AccueilPostLogin accueilPostLogin = new AccueilPostLogin(client);
                 accueilPostLogin.setVisible(true);
                 this.dispose();
             } else {

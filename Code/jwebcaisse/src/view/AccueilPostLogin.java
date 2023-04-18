@@ -16,7 +16,10 @@ public class AccueilPostLogin extends javax.swing.JFrame {
      * Creates new form accueil
      */
     
-    public AccueilPostLogin() {
+    private Client client;
+    
+    public AccueilPostLogin(Client client) {
+        this.client = client;
         initComponents();
     }
 
@@ -82,7 +85,7 @@ public class AccueilPostLogin extends javax.swing.JFrame {
         AchatFormule.setBounds(450, 20, 230, 30);
 
         UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        UserName.setText("Nom + Prénom");
+        UserName.setText(client.getNom() + " " + client.getPrenom());
         getContentPane().add(UserName);
         UserName.setBounds(50, 20, 110, 16);
 
@@ -94,7 +97,10 @@ public class AccueilPostLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_ChangerFormuleActionPerformed
 
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
-        // TODO add your handling code here:
+        client = null;
+        Accueil accueil = new Accueil();
+        accueil.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_LogoutActionPerformed
 
     private void AchatFormuleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AchatFormuleActionPerformed
@@ -137,8 +143,13 @@ public class AccueilPostLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Client client) {
+                new AccueilPostLogin(client).setVisible(true);
+            }
+
+            @Override
             public void run() {
-                new AccueilPostLogin().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         });
     }
