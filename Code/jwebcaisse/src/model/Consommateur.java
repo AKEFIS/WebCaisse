@@ -6,7 +6,6 @@ public class Consommateur {
     private String nom;
     private String prenom;
     private String adresseMail;
-    private String motDePasse;
     private String adresse;
     private int codePostal;
     private String ville;
@@ -16,12 +15,11 @@ public class Consommateur {
     }
 
     // Constructeur avec tous les attributs
-    public Consommateur(int idConsommateur, String nom, String prenom, String adresseMail, String motDePasse, String adresse, int codePostal, String ville) {
+    public Consommateur(int idConsommateur, String nom, String prenom, String adresseMail, String adresse, int codePostal, String ville) {
         this.idConsommateur = idConsommateur;
         this.nom = nom;
         this.prenom = prenom;
         this.adresseMail = adresseMail;
-        this.motDePasse = motDePasse;
         this.adresse = adresse;
         this.codePostal = codePostal;
         this.ville = ville;
@@ -58,14 +56,6 @@ public class Consommateur {
 
     public void setAdresseMail(String adresseMail) {
         this.adresseMail = adresseMail;
-    }
-
-    public String getMotDePasse() {
-        return motDePasse;
-    }
-
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
     }
 
     public String getAdresse() {

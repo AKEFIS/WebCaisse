@@ -4,6 +4,12 @@
  */
 package view;
 
+import technic.ConnectDB;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import DAO.ClientDAO;
+import model.Client;
+
 /**
  *
  * @author c.denys
@@ -27,10 +33,12 @@ public class Connection extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        AdresseMail = new javax.swing.JTextField();
+        MotDePasse = new javax.swing.JTextField();
+        Connection = new javax.swing.JButton();
+        LogoUser = new javax.swing.JLabel();
+        LogoRetour = new javax.swing.JLabel();
+        LabelRetour = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 500));
@@ -39,15 +47,25 @@ public class Connection extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jTextField1.setText("Utilisateur");
-        jTextField1.setToolTipText("");
+        AdresseMail.setText("Adresse mail");
+        AdresseMail.setToolTipText("");
+        AdresseMail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdresseMailActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setText("Mot de passe");
+        MotDePasse.setText("Mot de passe");
 
-        jButton1.setText("Connection");
+        Connection.setText("Connection");
+        Connection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConnectionActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/user-img_20.png"))); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(20, 22));
+        LogoUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/user-img_20.png"))); // NOI18N
+        LogoUser.setMaximumSize(new java.awt.Dimension(20, 22));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -58,10 +76,10 @@ public class Connection extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                        .addComponent(jButton1)
-                        .addComponent(jTextField1)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Connection)
+                        .addComponent(AdresseMail)
+                        .addComponent(MotDePasse, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                        .addComponent(LogoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap()))
         );
         jPanel2Layout.setVerticalGroup(
@@ -70,21 +88,83 @@ public class Connection extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(19, 19, 19)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MotDePasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addComponent(jButton1)
+                    .addComponent(Connection)
                     .addContainerGap(47, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(260, 140, 0, 190);
+        jPanel2.setBounds(260, 140, 151, 190);
+
+        LogoRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/escape_20.png"))); // NOI18N
+        LogoRetour.setMaximumSize(new java.awt.Dimension(20, 22));
+        LogoRetour.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoRetourMouseClicked(evt);
+            }
+        });
+        getContentPane().add(LogoRetour);
+        LogoRetour.setBounds(10, 10, 20, 20);
+
+        LabelRetour.setText("Retour");
+        getContentPane().add(LabelRetour);
+        LabelRetour.setBounds(40, 10, 37, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AdresseMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdresseMailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdresseMailActionPerformed
+
+    private void LogoRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoRetourMouseClicked
+        Accueil accueil = new Accueil();
+        accueil.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_LogoRetourMouseClicked
+
+    private void ConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnectionActionPerformed
+        // Récupération des identifiants
+        String email = AdresseMail.getText();
+        String password = MotDePasse.getText();
+        ClientDAO clientDAO = new ClientDAO();
+        Client client = new Client();
+
+        // Connexion à la base de données
+        try {
+            ConnectDB db = new ConnectDB();
+            java.sql.Connection con = db.getConnection();
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM Client WHERE AdresseMail = ? AND MotDePasse = ?");
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+
+            // Vérification des identifiants
+            if (rs.next()) {
+                // Identifiants corrects : ouverture de la fenêtre AccueilPostLogin
+                client = clientDAO.read(rs.getInt("IDClient"));
+                // AccueilPostLogin accueilPostLogin = new AccueilPostLogin(client);
+                AccueilPostLogin accueilPostLogin = new AccueilPostLogin();
+                accueilPostLogin.setVisible(true);
+                this.dispose();
+            } else {
+                // Identifiants incorrects : ouverture d'un popup
+                JOptionPane.showMessageDialog(this, "Identifiants incorrects", "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+
+            // Fermeture de la connexion
+            rs.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Erreur de connexion à la base de données : " + ex.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_ConnectionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,10 +205,12 @@ public class Connection extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField AdresseMail;
+    private javax.swing.JButton Connection;
+    private javax.swing.JLabel LabelRetour;
+    private javax.swing.JLabel LogoRetour;
+    private javax.swing.JLabel LogoUser;
+    private javax.swing.JTextField MotDePasse;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

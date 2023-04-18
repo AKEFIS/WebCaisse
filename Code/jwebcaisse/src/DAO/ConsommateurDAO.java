@@ -12,15 +12,14 @@ public class ConsommateurDAO {
 
     // Méthode de création d'un consommateur dans la table Consommateur
     public void create(Consommateur consommateur) {
-        String sql = "INSERT INTO Consommateur (Nom, Prenom, AdresseMail, MotDePasse, Adresse, CodePostal, Ville) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Consommateur (Nom, Prenom, AdresseMail, Adresse, CodePostal, Ville) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection connexion = connectDB.getConnection(); PreparedStatement statement = connexion.prepareStatement(sql)) {
 
             statement.setString(1, consommateur.getNom());
             statement.setString(2, consommateur.getPrenom());
             statement.setString(3, consommateur.getAdresseMail());
-            statement.setString(4, consommateur.getMotDePasse());
             statement.setString(5, consommateur.getAdresse());
             statement.setInt(6, consommateur.getCodePostal());
             statement.setString(7, consommateur.getVille());
@@ -46,7 +45,6 @@ public class ConsommateurDAO {
                             resultSet.getString("Nom"),
                             resultSet.getString("Prenom"),
                             resultSet.getString("AdresseMail"),
-                            resultSet.getString("MotDePasse"),
                             resultSet.getString("Adresse"),
                             resultSet.getInt("CodePostal"),
                             resultSet.getString("Ville"));
@@ -63,14 +61,13 @@ public class ConsommateurDAO {
 
     // Méthode de mise à jour d'un consommateur dans la table Consommateur
     public void update(Consommateur consommateur) {
-        String sql = "UPDATE Consommateur SET Nom = ?, Prenom = ?, AdresseMail = ?, MotDePasse = ?, Adresse = ?, CodePostal = ?, Ville = ? WHERE IDConsommateur = ?";
+        String sql = "UPDATE Consommateur SET Nom = ?, Prenom = ?, AdresseMail = ?, Adresse = ?, CodePostal = ?, Ville = ? WHERE IDConsommateur = ?";
 
         try (Connection connexion = connectDB.getConnection(); PreparedStatement statement = connexion.prepareStatement(sql)) {
 
             statement.setString(1, consommateur.getNom());
             statement.setString(2, consommateur.getPrenom());
             statement.setString(3, consommateur.getAdresseMail());
-            statement.setString(4, consommateur.getMotDePasse());
             statement.setString(5, consommateur.getAdresse());
             statement.setInt(6, consommateur.getCodePostal());
             statement.setString(7, consommateur.getVille());
@@ -108,7 +105,6 @@ public class ConsommateurDAO {
                             resultSet.getString("Nom"),
                             resultSet.getString("Prenom"),
                             resultSet.getString("AdresseMail"),
-                            resultSet.getString("MotDePasse"),
                             resultSet.getString("Adresse"),
                             resultSet.getInt("CodePostal"),
                             resultSet.getString("Ville"));
