@@ -8,7 +8,6 @@ import model.Client;
 import model.PointDeVente;
 import DAO.PointDeVenteDAO;
 import java.util.List;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
@@ -40,6 +39,21 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        pointDeVentePanel = new javax.swing.JPanel();
+        nomLabel = new javax.swing.JLabel();
+        adresseLabel = new javax.swing.JLabel();
+        formuleLaberl = new javax.swing.JLabel();
+        villeLabel = new javax.swing.JLabel();
+        codePostalLabel = new javax.swing.JLabel();
+        nomTextField = new javax.swing.JTextField();
+        adresseTextField = new javax.swing.JTextField();
+        formuleTextField = new javax.swing.JTextField();
+        villeTextField = new javax.swing.JTextField();
+        codePostalTextField = new javax.swing.JTextField();
+        deleteButton = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
+        changerFormuleButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 530));
@@ -56,90 +70,98 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(160, 40, 330, 28);
 
+        pointDeVentePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pointDeVentePanel.setLayout(null);
+
+        nomLabel.setText("Nom :");
+        pointDeVentePanel.add(nomLabel);
+        nomLabel.setBounds(360, 50, 37, 30);
+
+        adresseLabel.setText("Adresse : ");
+        pointDeVentePanel.add(adresseLabel);
+        adresseLabel.setBounds(10, 10, 70, 30);
+
+        formuleLaberl.setText("Formule :");
+        pointDeVentePanel.add(formuleLaberl);
+        formuleLaberl.setBounds(10, 90, 70, 30);
+
+        villeLabel.setText("Ville : ");
+        pointDeVentePanel.add(villeLabel);
+        villeLabel.setBounds(360, 10, 37, 30);
+
+        codePostalLabel.setText("Code postal :");
+        pointDeVentePanel.add(codePostalLabel);
+        codePostalLabel.setBounds(10, 50, 90, 30);
+
+        nomTextField.setEnabled(false);
+        pointDeVentePanel.add(nomTextField);
+        nomTextField.setBounds(400, 50, 270, 30);
+
+        adresseTextField.setEnabled(false);
+        pointDeVentePanel.add(adresseTextField);
+        adresseTextField.setBounds(90, 10, 260, 30);
+
+        formuleTextField.setEnabled(false);
+        pointDeVentePanel.add(formuleTextField);
+        formuleTextField.setBounds(90, 90, 180, 27);
+
+        villeTextField.setEnabled(false);
+        pointDeVentePanel.add(villeTextField);
+        villeTextField.setBounds(400, 10, 270, 30);
+
+        codePostalTextField.setEnabled(false);
+        pointDeVentePanel.add(codePostalTextField);
+        codePostalTextField.setBounds(90, 50, 260, 30);
+
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/minus_20.png"))); // NOI18N
+        deleteButton.setToolTipText("Supprimer");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        pointDeVentePanel.add(deleteButton);
+        deleteButton.setBounds(640, 90, 30, 27);
+
+        editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/pencil_20.png"))); // NOI18N
+        editButton.setToolTipText("Modifier");
+        pointDeVentePanel.add(editButton);
+        editButton.setBounds(540, 90, 30, 27);
+
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/valid_20.png"))); // NOI18N
+        saveButton.setToolTipText("Sauvegarder");
+        saveButton.setEnabled(false);
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+        pointDeVentePanel.add(saveButton);
+        saveButton.setBounds(590, 90, 30, 27);
+
+        changerFormuleButton.setText("Changer la formule de fidélisation");
+        changerFormuleButton.setMaximumSize(new java.awt.Dimension(209, 27));
+        changerFormuleButton.setMinimumSize(new java.awt.Dimension(209, 27));
+        pointDeVentePanel.add(changerFormuleButton);
+        changerFormuleButton.setBounds(290, 90, 230, 27);
+
+        getContentPane().add(pointDeVentePanel);
+        pointDeVentePanel.setBounds(10, 80, 680, 130);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        PointDeVenteDAO pointDeVenteDAO = new PointDeVenteDAO();
-        List<PointDeVente> pointsDeVente = pointDeVenteDAO.getAllPointDeVenteByIDClient(client.getIdClient());
-        int nbPointsDeVente = pointsDeVente.size();
-        for (int i = 0; i < nbPointsDeVente; i++) {
-            JPanel panel = new JPanel();
-            
-            panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-            panel.setLayout(null);
-            
-            JLabel adresseLabel = new JLabel("Adresse : ");
-            JLabel codePostalLabel = new JLabel("Code postal :");
-            JLabel villeLabel = new JLabel("Ville : ");
-            JLabel nomLabel = new JLabel("Nom : ");
-            JLabel formuleLabel = new JLabel("Formule : ");
-            
-            JTextField adresseTextField = new JTextField(pointsDeVente.get(i).getAdresse());
-            JTextField codePostalTextField = new JTextField(String.valueOf(pointsDeVente.get(i).getCodePostal()));
-            JTextField villeTextField = new JTextField(pointsDeVente.get(i).getVille());
-            JTextField nomTextField = new JTextField(pointsDeVente.get(i).getNomPointDeVente());
-            JTextField formuleTextField = new JTextField(String.valueOf(pointsDeVente.get(i).getIdFormuleFidelisation()));
-            
-            JButton deleteButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/minus_20.png")));
-            deleteButton.setToolTipText("Supprimer");
-            panel.add(deleteButton);
-            deleteButton.setBounds(640, 90, 30, 27);
-            
-            JButton editButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/pencil_20.png")));
-            editButton.setToolTipText("Modifier");
-            panel.add(editButton);
-            editButton.setBounds(540, 90, 30, 27);
-            
-            JButton saveButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/valid_20.png")));
-            saveButton.setToolTipText("Sauvegarder");
-            saveButton.setEnabled(false);
-            panel.add(saveButton);
-            saveButton.setBounds(590, 90, 30, 27);
-            
-            JButton changerFormuleButton = new JButton("Changer la formule de fidélisation");
-            panel.add(changerFormuleButton);
-            changerFormuleButton.setBounds(290, 90, 220, 27);
-            
-            panel.add(adresseLabel);
-            adresseLabel.setBounds(10, 10, 70, 30);
-            
-            panel.add(codePostalLabel);
-            codePostalLabel.setBounds(10, 50, 90, 30);
-            
-            panel.add(villeLabel);
-            villeLabel.setBounds(360, 10, 37, 30);
-            
-            panel.add(nomLabel);
-            nomLabel.setBounds(360, 50, 60, 30);
-            
-            panel.add(formuleLabel);
-            formuleLabel.setBounds(10, 90, 70, 30);
-            
-            panel.add(adresseTextField);
-            adresseTextField.setBounds(90, 10, 240, 30);
-            adresseTextField.setEditable(false);
-            
-            panel.add(codePostalTextField);
-            codePostalTextField.setBounds(90, 50, 240, 30);
-            codePostalTextField.setEditable(false);
-            
-            panel.add(villeTextField);
-            villeTextField.setBounds(400, 10, 270, 30);
-            villeTextField.setEditable(false);
-            
-            panel.add(nomTextField);
-            nomTextField.setBounds(400, 50, 270, 30);
-            nomTextField.setEditable(false);
-            
-            panel.add(formuleTextField);
-            formuleTextField.setBounds(90, 90, 180, 30);
-            formuleTextField.setEditable(false);
-            
-            getContentPane().add(panel);
-            panel.setBounds(10, i * 120 + 90, 690, 120);
-        }
+        
     }//GEN-LAST:event_formWindowOpened
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,6 +267,21 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel adresseLabel;
+    private javax.swing.JTextField adresseTextField;
+    private javax.swing.JButton changerFormuleButton;
+    private javax.swing.JLabel codePostalLabel;
+    private javax.swing.JTextField codePostalTextField;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JButton editButton;
+    private javax.swing.JLabel formuleLaberl;
+    private javax.swing.JTextField formuleTextField;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel nomLabel;
+    private javax.swing.JTextField nomTextField;
+    private javax.swing.JPanel pointDeVentePanel;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JLabel villeLabel;
+    private javax.swing.JTextField villeTextField;
     // End of variables declaration//GEN-END:variables
 }

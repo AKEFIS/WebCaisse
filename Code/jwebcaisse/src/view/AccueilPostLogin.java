@@ -35,11 +35,9 @@ public class AccueilPostLogin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
-        ChangerFormule = new javax.swing.JButton();
         Logout = new javax.swing.JButton();
         GestionPointsDeVente = new javax.swing.JButton();
         UserName = new javax.swing.JLabel();
-        AchatFormule = new javax.swing.JButton();
         AjoutPointDeVente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,15 +56,6 @@ public class AccueilPostLogin extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(10, 100, 90, 28);
 
-        ChangerFormule.setText("Changer de formule");
-        ChangerFormule.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChangerFormuleActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ChangerFormule);
-        ChangerFormule.setBounds(450, 60, 230, 30);
-
         Logout.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         Logout.setText("Se déconnecter");
         Logout.addActionListener(new java.awt.event.ActionListener() {
@@ -77,28 +66,19 @@ public class AccueilPostLogin extends javax.swing.JFrame {
         getContentPane().add(Logout);
         Logout.setBounds(50, 40, 110, 20);
 
-        GestionPointsDeVente.setText("Gestion points de vente");
+        GestionPointsDeVente.setText("Gérer mes points de vente");
         GestionPointsDeVente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GestionPointsDeVenteActionPerformed(evt);
             }
         });
         getContentPane().add(GestionPointsDeVente);
-        GestionPointsDeVente.setBounds(210, 60, 230, 30);
+        GestionPointsDeVente.setBounds(450, 20, 230, 30);
 
         UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         UserName.setText(client.getNom() + " " + client.getPrenom());
         getContentPane().add(UserName);
         UserName.setBounds(50, 20, 110, 16);
-
-        AchatFormule.setText("Acheter une formule");
-        AchatFormule.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AchatFormuleActionPerformed(evt);
-            }
-        });
-        getContentPane().add(AchatFormule);
-        AchatFormule.setBounds(450, 20, 230, 30);
 
         AjoutPointDeVente.setText("Ajouter un point de vente");
         AjoutPointDeVente.addActionListener(new java.awt.event.ActionListener() {
@@ -111,10 +91,6 @@ public class AccueilPostLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ChangerFormuleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangerFormuleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChangerFormuleActionPerformed
 
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
         client = null;
@@ -129,12 +105,10 @@ public class AccueilPostLogin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_GestionPointsDeVenteActionPerformed
 
-    private void AchatFormuleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AchatFormuleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AchatFormuleActionPerformed
-
     private void AjoutPointDeVenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjoutPointDeVenteActionPerformed
-        // TODO add your handling code here:
+        AjoutPointDeVente ajoutPointDeVente = new AjoutPointDeVente(client);
+        ajoutPointDeVente.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_AjoutPointDeVenteActionPerformed
 
     /**
@@ -185,9 +159,7 @@ public class AccueilPostLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AchatFormule;
     private javax.swing.JButton AjoutPointDeVente;
-    private javax.swing.JButton ChangerFormule;
     private javax.swing.JButton GestionPointsDeVente;
     private javax.swing.JButton Logout;
     private javax.swing.JLabel UserName;
