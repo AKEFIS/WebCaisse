@@ -7,11 +7,12 @@ package view;
 import model.Client;
 import model.PointDeVente;
 import DAO.PointDeVenteDAO;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
 /**
@@ -65,79 +66,128 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
         int nbPointsDeVente = pointsDeVente.size();
         for (int i = 0; i < nbPointsDeVente; i++) {
             JPanel panel = new JPanel();
-            
+            int IDPointDeVente = pointsDeVente.get(i).getIdPointDeVente();
+            int IDFormuleFidelisation = pointsDeVente.get(i).getIdFormuleFidelisation();
+            System.out.println(IDFormuleFidelisation);
+            int IDClient = pointsDeVente.get(i).getIdClient();
+
             panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
             panel.setLayout(null);
-            
+
             JLabel adresseLabel = new JLabel("Adresse : ");
             JLabel codePostalLabel = new JLabel("Code postal :");
             JLabel villeLabel = new JLabel("Ville : ");
             JLabel nomLabel = new JLabel("Nom : ");
             JLabel formuleLabel = new JLabel("Formule : ");
-            
+
             JTextField adresseTextField = new JTextField(pointsDeVente.get(i).getAdresse());
             JTextField codePostalTextField = new JTextField(String.valueOf(pointsDeVente.get(i).getCodePostal()));
             JTextField villeTextField = new JTextField(pointsDeVente.get(i).getVille());
             JTextField nomTextField = new JTextField(pointsDeVente.get(i).getNomPointDeVente());
             JTextField formuleTextField = new JTextField(String.valueOf(pointsDeVente.get(i).getIdFormuleFidelisation()));
-            
+
             JButton deleteButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/minus_20.png")));
             deleteButton.setToolTipText("Supprimer");
             panel.add(deleteButton);
             deleteButton.setBounds(640, 90, 30, 27);
-            
+
             JButton editButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/pencil_20.png")));
             editButton.setToolTipText("Modifier");
             panel.add(editButton);
             editButton.setBounds(540, 90, 30, 27);
-            
+
             JButton saveButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/valid_20.png")));
             saveButton.setToolTipText("Sauvegarder");
             saveButton.setEnabled(false);
             panel.add(saveButton);
             saveButton.setBounds(590, 90, 30, 27);
-            
+
             JButton changerFormuleButton = new JButton("Changer la formule de fidélisation");
             panel.add(changerFormuleButton);
             changerFormuleButton.setBounds(290, 90, 220, 27);
-            
+
             panel.add(adresseLabel);
             adresseLabel.setBounds(10, 10, 70, 30);
-            
+
             panel.add(codePostalLabel);
             codePostalLabel.setBounds(10, 50, 90, 30);
-            
+
             panel.add(villeLabel);
             villeLabel.setBounds(360, 10, 37, 30);
-            
+
             panel.add(nomLabel);
             nomLabel.setBounds(360, 50, 60, 30);
-            
+
             panel.add(formuleLabel);
             formuleLabel.setBounds(10, 90, 70, 30);
-            
+
             panel.add(adresseTextField);
             adresseTextField.setBounds(90, 10, 240, 30);
             adresseTextField.setEditable(false);
-            
+
             panel.add(codePostalTextField);
             codePostalTextField.setBounds(90, 50, 240, 30);
             codePostalTextField.setEditable(false);
-            
+
             panel.add(villeTextField);
             villeTextField.setBounds(400, 10, 270, 30);
             villeTextField.setEditable(false);
-            
+
             panel.add(nomTextField);
             nomTextField.setBounds(400, 50, 270, 30);
             nomTextField.setEditable(false);
-            
+
             panel.add(formuleTextField);
             formuleTextField.setBounds(90, 90, 180, 30);
             formuleTextField.setEditable(false);
-            
+
             getContentPane().add(panel);
             panel.setBounds(10, i * 120 + 90, 690, 120);
+
+            deleteButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("Supression du pdv ID : " + IDPointDeVente);
+                }
+            });
+
+            editButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    // Code pour l'édition
+                    saveButton.setEnabled(true);
+                    adresseTextField.setEditable(true);
+                    codePostalTextField.setEditable(true);
+                    villeTextField.setEditable(true);
+                    nomTextField.setEditable(true);
+                }
+            });
+
+            saveButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    // Code pour la sauvegarde
+                    saveButton.setEnabled(false);
+                    adresseTextField.setEditable(false);
+                    codePostalTextField.setEditable(false);
+                    villeTextField.setEditable(false);
+                    nomTextField.setEditable(false);
+                    
+                    PointDeVente updatePointDeVente = new PointDeVente();
+                    updatePointDeVente.setIdPointDeVente(IDPointDeVente);
+                    updatePointDeVente.setIdFormuleFidelisation(IDFormuleFidelisation);
+                    updatePointDeVente.setIdClient(IDClient);
+                    updatePointDeVente.setAdresse(adresseTextField.getText());
+                    updatePointDeVente.setCodePostal(Integer.parseInt(codePostalTextField.getText()));
+                    updatePointDeVente.setVille(villeTextField.getText());
+                    updatePointDeVente.setNomPointDeVente(nomTextField.getText());
+                    
+                    pointDeVenteDAO.update(updatePointDeVente);
+                }
+            });
+
+            changerFormuleButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    // Code pour changer la formule de fidélisation
+                }
+            });
         }
     }//GEN-LAST:event_formWindowOpened
 
