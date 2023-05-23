@@ -82,6 +82,7 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
         List<PointDeVente> pointsDeVente = pointDeVenteDAO.getAllPointDeVenteByIDClient(client.getIdClient());
         int nbPointsDeVente = pointsDeVente.size();
         for (int i = 0; i < nbPointsDeVente; i++) {
+            int index = i;
             JPanel panel = new JPanel();
             int IDPointDeVente = pointsDeVente.get(i).getIdPointDeVente();
             int IDFormuleFidelisation = pointsDeVente.get(i).getIdFormuleFidelisation();
@@ -106,28 +107,28 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
             JButton changerFormuleButton = new JButton("Changer la formule de fidélisation");
             panel.add(changerFormuleButton);
             changerFormuleButton.setBounds(290, 90, 220, 27);
-            
+
             //Gestion clients
             JButton gestionClientsButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/user-img_20.png")));
             gestionClientsButton.setToolTipText("Gestion des clients");
             panel.add(gestionClientsButton);
             gestionClientsButton.setBounds(520, 90, 30, 27);
-            
+
             JButton editButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/pencil_20.png")));
             editButton.setToolTipText("Modifier");
             panel.add(editButton);
             editButton.setBounds(560, 90, 30, 27);
-            
+
             JButton saveButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/valid_20.png")));
             saveButton.setToolTipText("Sauvegarder");
             saveButton.setEnabled(false);
             panel.add(saveButton);
             saveButton.setBounds(600, 90, 30, 27);
-            
+
             JButton deleteButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/minus_20.png")));
             deleteButton.setToolTipText("Supprimer");
             panel.add(deleteButton);
-            deleteButton.setBounds(640, 90, 30, 27);            
+            deleteButton.setBounds(640, 90, 30, 27);
 
             panel.add(adresseLabel);
             adresseLabel.setBounds(10, 10, 70, 30);
@@ -192,7 +193,7 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
                     codePostalTextField.setEditable(false);
                     villeTextField.setEditable(false);
                     nomTextField.setEditable(false);
-                    
+
                     PointDeVente updatePointDeVente = new PointDeVente();
                     updatePointDeVente.setIdPointDeVente(IDPointDeVente);
                     updatePointDeVente.setIdFormuleFidelisation(IDFormuleFidelisation);
@@ -201,14 +202,32 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
                     updatePointDeVente.setCodePostal(Integer.parseInt(codePostalTextField.getText()));
                     updatePointDeVente.setVille(villeTextField.getText());
                     updatePointDeVente.setNomPointDeVente(nomTextField.getText());
-                    
+
                     pointDeVenteDAO.update(updatePointDeVente);
                 }
             });
 
             changerFormuleButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    // Code pour changer la formule de fidélisation
+                    // Créer une instance de la fenêtre "Inscription"
+                    ChangerFormule changerFormule = new ChangerFormule(client, pointsDeVente.get(index));
+
+                    // Afficher la nouvelle fenêtre
+                    changerFormule.setVisible(true);
+
+                    // Cacher la fenêtre "Accueil"
+                }
+            });
+
+            gestionClientsButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    // Créer une instance de la fenêtre "Inscription"
+                    ChangerFormule changerFormule = new ChangerFormule(client, pointsDeVente.get(index));
+
+                    // Afficher la nouvelle fenêtre
+                    changerFormule.setVisible(true);
+
+                    // Cacher la fenêtre "Accueil"
                 }
             });
         }

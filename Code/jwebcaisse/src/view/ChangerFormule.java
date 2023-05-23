@@ -4,6 +4,10 @@
  */
 package view;
 
+import DAO.PointDeVenteDAO;
+import model.Client;
+import model.PointDeVente;
+
 /**
  *
  * @author c.denys
@@ -13,7 +17,13 @@ public class ChangerFormule extends javax.swing.JFrame {
     /**
      * Creates new form changerformule
      */
-    public ChangerFormule() {
+    
+    private final Client client;
+    private final PointDeVente pointDeVente;
+    
+    public ChangerFormule(Client client, PointDeVente pointDeVente) {
+        this.client = client;
+        this.pointDeVente = pointDeVente;
         initComponents();
     }
 
@@ -26,8 +36,6 @@ public class ChangerFormule extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        UserName = new javax.swing.JLabel();
         Formule1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -53,15 +61,12 @@ public class ChangerFormule extends javax.swing.JFrame {
         Fonctionnalité1F2 = new javax.swing.JLabel();
         Fonctionnalité3F2 = new javax.swing.JLabel();
         Fonctionnalité2F2 = new javax.swing.JLabel();
+        UserName = new javax.swing.JLabel();
+        Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 530));
         setResizable(false);
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Nom d'utilisateur");
-
-        UserName.setText("Utilisateur :");
 
         jTextArea1.setColumns(10);
         jTextArea1.setLineWrap(true);
@@ -280,37 +285,49 @@ public class ChangerFormule extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
+        UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        UserName.setText(client.getNom() + " " + client.getPrenom());
+
+        Logout.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        Logout.setText("Se déconnecter");
+        Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Formule1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(Formule2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(Retour)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(UserName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Formule1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                        .addComponent(Formule2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Formule3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Formule3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(UserName))
-                    .addComponent(Retour))
+                    .addComponent(Retour)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(UserName)
+                        .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -328,7 +345,10 @@ public class ChangerFormule extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SelectionF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectionF1ActionPerformed
-        // TODO add your handling code here:
+        PointDeVenteDAO pointDeVenteDAO = new PointDeVenteDAO();
+        pointDeVente.setIdFormuleFidelisation(1);
+        pointDeVenteDAO.update(pointDeVente);
+        this.dispose();
     }//GEN-LAST:event_SelectionF1ActionPerformed
 
     private void RetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetourActionPerformed
@@ -336,12 +356,24 @@ public class ChangerFormule extends javax.swing.JFrame {
     }//GEN-LAST:event_RetourActionPerformed
 
     private void SelectionF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectionF2ActionPerformed
-        // TODO add your handling code here:
+        PointDeVenteDAO pointDeVenteDAO = new PointDeVenteDAO();
+        pointDeVente.setIdFormuleFidelisation(2);
+        pointDeVenteDAO.update(pointDeVente);
+        this.dispose();
     }//GEN-LAST:event_SelectionF2ActionPerformed
 
     private void SelectionF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectionF3ActionPerformed
-        // TODO add your handling code here:
+        PointDeVenteDAO pointDeVenteDAO = new PointDeVenteDAO();
+        pointDeVente.setIdFormuleFidelisation(3);
+        pointDeVenteDAO.update(pointDeVente);
+        this.dispose();
     }//GEN-LAST:event_SelectionF3ActionPerformed
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        Accueil accueil = new Accueil();
+        accueil.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_LogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,8 +411,13 @@ public class ChangerFormule extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Client client, PointDeVente pointDeVente) {
+                new ChangerFormule(client, pointDeVente).setVisible(true);
+            }
+
+            @Override
             public void run() {
-                new ChangerFormule().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         });
     }
@@ -401,12 +438,12 @@ public class ChangerFormule extends javax.swing.JFrame {
     private javax.swing.JPanel Formule1;
     private javax.swing.JPanel Formule2;
     private javax.swing.JPanel Formule3;
+    private javax.swing.JButton Logout;
     private javax.swing.JButton Retour;
     private javax.swing.JToggleButton SelectionF1;
     private javax.swing.JToggleButton SelectionF2;
     private javax.swing.JToggleButton SelectionF3;
     private javax.swing.JLabel UserName;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
