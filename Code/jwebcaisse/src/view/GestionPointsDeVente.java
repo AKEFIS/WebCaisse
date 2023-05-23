@@ -41,6 +41,8 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        UserName = new javax.swing.JLabel();
+        Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 530));
@@ -56,6 +58,21 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
         jLabel1.setText("Gestions des points de vente");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(160, 40, 330, 28);
+
+        UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        UserName.setText(client.getNom() + " " + client.getPrenom());
+        getContentPane().add(UserName);
+        UserName.setBounds(30, 20, 110, 16);
+
+        Logout.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        Logout.setText("Se déconnecter");
+        Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Logout);
+        Logout.setBounds(30, 40, 110, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -86,25 +103,31 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
             JTextField nomTextField = new JTextField(pointsDeVente.get(i).getNomPointDeVente());
             JTextField formuleTextField = new JTextField(String.valueOf(pointsDeVente.get(i).getIdFormuleFidelisation()));
 
-            JButton deleteButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/minus_20.png")));
-            deleteButton.setToolTipText("Supprimer");
-            panel.add(deleteButton);
-            deleteButton.setBounds(640, 90, 30, 27);
-
+            JButton changerFormuleButton = new JButton("Changer la formule de fidélisation");
+            panel.add(changerFormuleButton);
+            changerFormuleButton.setBounds(290, 90, 220, 27);
+            
+            //Gestion clients
+            JButton gestionClientsButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/user-img_20.png")));
+            gestionClientsButton.setToolTipText("Gestion des clients");
+            panel.add(gestionClientsButton);
+            gestionClientsButton.setBounds(520, 90, 30, 27);
+            
             JButton editButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/pencil_20.png")));
             editButton.setToolTipText("Modifier");
             panel.add(editButton);
-            editButton.setBounds(540, 90, 30, 27);
-
+            editButton.setBounds(560, 90, 30, 27);
+            
             JButton saveButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/valid_20.png")));
             saveButton.setToolTipText("Sauvegarder");
             saveButton.setEnabled(false);
             panel.add(saveButton);
-            saveButton.setBounds(590, 90, 30, 27);
-
-            JButton changerFormuleButton = new JButton("Changer la formule de fidélisation");
-            panel.add(changerFormuleButton);
-            changerFormuleButton.setBounds(290, 90, 220, 27);
+            saveButton.setBounds(600, 90, 30, 27);
+            
+            JButton deleteButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/ressources/minus_20.png")));
+            deleteButton.setToolTipText("Supprimer");
+            panel.add(deleteButton);
+            deleteButton.setBounds(640, 90, 30, 27);            
 
             panel.add(adresseLabel);
             adresseLabel.setBounds(10, 10, 70, 30);
@@ -190,6 +213,12 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
             });
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        Accueil accueil = new Accueil();
+        accueil.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_LogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,6 +324,8 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Logout;
+    private javax.swing.JLabel UserName;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

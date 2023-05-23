@@ -43,6 +43,8 @@ public class AjoutPointDeVente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         LogoRetour = new javax.swing.JLabel();
         LabelRetour = new javax.swing.JLabel();
+        Logout = new javax.swing.JButton();
+        UserName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 500));
@@ -145,6 +147,21 @@ public class AjoutPointDeVente extends javax.swing.JFrame {
         getContentPane().add(LabelRetour);
         LabelRetour.setBounds(40, 10, 37, 16);
 
+        Logout.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        Logout.setText("Se déconnecter");
+        Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Logout);
+        Logout.setBounds(570, 10, 110, 20);
+
+        UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        UserName.setText(client.getNom() + " " + client.getPrenom());
+        getContentPane().add(UserName);
+        UserName.setBounds(460, 10, 110, 16);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -190,6 +207,12 @@ public class AjoutPointDeVente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erreur lors de l'ajout du point de vente : " + e.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_AjoutPointDeVenteActionPerformed
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        Accueil accueil = new Accueil();
+        accueil.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_LogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,7 +275,9 @@ public class AjoutPointDeVente extends javax.swing.JFrame {
     private javax.swing.JTextField CodePostal;
     private javax.swing.JLabel LabelRetour;
     private javax.swing.JLabel LogoRetour;
+    private javax.swing.JButton Logout;
     private javax.swing.JTextField Nom;
+    private javax.swing.JLabel UserName;
     private javax.swing.JTextField Ville;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;

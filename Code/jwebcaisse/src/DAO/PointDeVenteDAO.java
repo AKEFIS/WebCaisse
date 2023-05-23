@@ -18,7 +18,7 @@ public class PointDeVenteDAO {
 
         try (Connection connexion = connectDB.getConnection(); PreparedStatement statement = connexion.prepareStatement(sql)) {
 
-            statement.setNull(1, 0);
+            statement.setInt(1, 0);
             statement.setInt(2, pointDeVente.getIdClient());
             statement.setString(3, pointDeVente.getAdresse());
             statement.setInt(4, pointDeVente.getCodePostal());
