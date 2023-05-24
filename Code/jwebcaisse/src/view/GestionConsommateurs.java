@@ -42,6 +42,8 @@ public class GestionConsommateurs extends javax.swing.JFrame {
         chercherIDLabel = new javax.swing.JLabel();
         adresseMailConsommateurTextField = new javax.swing.JTextField();
         chercherConsommaterButton = new javax.swing.JButton();
+        voirMesConsommateursButton = new javax.swing.JButton();
+        gestionPointsDeFideliteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 530));
@@ -71,6 +73,20 @@ public class GestionConsommateurs extends javax.swing.JFrame {
             }
         });
 
+        voirMesConsommateursButton.setText("Voir mes consommateurs");
+        voirMesConsommateursButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voirMesConsommateursButtonActionPerformed(evt);
+            }
+        });
+
+        gestionPointsDeFideliteButton.setText("Gérer les points de fidélités");
+        gestionPointsDeFideliteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gestionPointsDeFideliteButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,16 +94,22 @@ public class GestionConsommateurs extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ajoutConsommateurButton)
-                    .addComponent(chercherIDLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(adresseMailConsommateurTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chercherConsommaterButton))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ajoutConsommateurButton)
+                            .addComponent(chercherIDLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(adresseMailConsommateurTextField)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chercherConsommaterButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(liaisonConsommateurButton, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(voirMesConsommateursButton, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(liaisonConsommateurButton)
+                        .addComponent(gestionPointsDeFideliteButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -102,8 +124,11 @@ public class GestionConsommateurs extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ajoutConsommateurButton)
-                    .addComponent(liaisonConsommateurButton))
-                .addContainerGap(436, Short.MAX_VALUE))
+                    .addComponent(liaisonConsommateurButton)
+                    .addComponent(voirMesConsommateursButton))
+                .addGap(18, 18, 18)
+                .addComponent(gestionPointsDeFideliteButton)
+                .addContainerGap(395, Short.MAX_VALUE))
         );
 
         pack();
@@ -118,7 +143,7 @@ public class GestionConsommateurs extends javax.swing.JFrame {
     }//GEN-LAST:event_ajoutConsommateurButtonActionPerformed
 
     private void liaisonConsommateurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_liaisonConsommateurButtonActionPerformed
-        // Créer une instance de la fenêtre "AjoutConsommateur"
+        // Créer une instance de la fenêtre "LiaisonConsommateur"
         LiaisonConsommateur liaisonConsommateur = new LiaisonConsommateur(pointDeVente);
 
         // Afficher la nouvelle fenêtre
@@ -135,6 +160,22 @@ public class GestionConsommateurs extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(this, finalString, "Informations du consommateur", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_chercherConsommaterButtonActionPerformed
+
+    private void voirMesConsommateursButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voirMesConsommateursButtonActionPerformed
+        // Créer une instance de la fenêtre "LiaisonConsommateur"
+        MesConsommateurs mesConsommateurs = new MesConsommateurs(pointDeVente);
+
+        // Afficher la nouvelle fenêtre
+        mesConsommateurs.setVisible(true);
+    }//GEN-LAST:event_voirMesConsommateursButtonActionPerformed
+
+    private void gestionPointsDeFideliteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionPointsDeFideliteButtonActionPerformed
+        // Créer une instance de la fenêtre "LiaisonConsommateur"
+        GestionPointFidelite gestionPointFidelite = new GestionPointFidelite(pointDeVente);
+
+        // Afficher la nouvelle fenêtre
+        gestionPointFidelite.setVisible(true);
+    }//GEN-LAST:event_gestionPointsDeFideliteButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,6 +225,8 @@ public class GestionConsommateurs extends javax.swing.JFrame {
     private javax.swing.JButton ajoutConsommateurButton;
     private javax.swing.JButton chercherConsommaterButton;
     private javax.swing.JLabel chercherIDLabel;
+    private javax.swing.JButton gestionPointsDeFideliteButton;
     private javax.swing.JButton liaisonConsommateurButton;
+    private javax.swing.JButton voirMesConsommateursButton;
     // End of variables declaration//GEN-END:variables
 }

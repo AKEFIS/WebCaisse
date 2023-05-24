@@ -16,14 +16,14 @@ import technic.ConnectDB;
  *
  * @author c.denys
  */
-public class LiaisonConsommateur extends javax.swing.JFrame {
+public class GestionPointFidelite extends javax.swing.JFrame {
     
     private final PointDeVente pointDeVente;
 
     /**
      * Creates new form connection
      */
-    public LiaisonConsommateur(PointDeVente pointDeVente) {
+    public GestionPointFidelite(PointDeVente pointDeVente) {
         this.pointDeVente = pointDeVente;
         initComponents();
     }
@@ -40,10 +40,12 @@ public class LiaisonConsommateur extends javax.swing.JFrame {
         LogoRetour = new javax.swing.JLabel();
         LabelRetour = new javax.swing.JLabel();
         IDConsommateurLabel = new javax.swing.JLabel();
-        PointsDeFideliteLabel = new javax.swing.JLabel();
+        ChoixLabel = new javax.swing.JLabel();
         PointsDeFideliteTextField = new javax.swing.JTextField();
         IDConsommateurTextField = new javax.swing.JTextField();
-        LiaisonConsommateurButton = new javax.swing.JButton();
+        ValiderButton = new javax.swing.JButton();
+        ChoixComboBox = new javax.swing.JComboBox<>();
+        PointsDeFideliteLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 500));
@@ -68,9 +70,9 @@ public class LiaisonConsommateur extends javax.swing.JFrame {
         getContentPane().add(IDConsommateurLabel);
         IDConsommateurLabel.setBounds(20, 60, 130, 16);
 
-        PointsDeFideliteLabel.setText("Points de fidélités : ");
-        getContentPane().add(PointsDeFideliteLabel);
-        PointsDeFideliteLabel.setBounds(20, 100, 110, 16);
+        ChoixLabel.setText("Choix : ");
+        getContentPane().add(ChoixLabel);
+        ChoixLabel.setBounds(20, 90, 110, 16);
 
         PointsDeFideliteTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,18 +80,26 @@ public class LiaisonConsommateur extends javax.swing.JFrame {
             }
         });
         getContentPane().add(PointsDeFideliteTextField);
-        PointsDeFideliteTextField.setBounds(160, 100, 64, 22);
+        PointsDeFideliteTextField.setBounds(160, 120, 90, 22);
         getContentPane().add(IDConsommateurTextField);
-        IDConsommateurTextField.setBounds(160, 60, 64, 22);
+        IDConsommateurTextField.setBounds(160, 60, 90, 22);
 
-        LiaisonConsommateurButton.setText("Lier le consommateur");
-        LiaisonConsommateurButton.addActionListener(new java.awt.event.ActionListener() {
+        ValiderButton.setText("Valider");
+        ValiderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LiaisonConsommateurButtonActionPerformed(evt);
+                ValiderButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(LiaisonConsommateurButton);
-        LiaisonConsommateurButton.setBounds(20, 150, 200, 23);
+        getContentPane().add(ValiderButton);
+        ValiderButton.setBounds(20, 150, 230, 23);
+
+        ChoixComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ajouter", "Retirer" }));
+        getContentPane().add(ChoixComboBox);
+        ChoixComboBox.setBounds(160, 90, 90, 22);
+
+        PointsDeFideliteLabel.setText("Points de fidélités : ");
+        getContentPane().add(PointsDeFideliteLabel);
+        PointsDeFideliteLabel.setBounds(20, 120, 110, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,19 +114,29 @@ public class LiaisonConsommateur extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PointsDeFideliteTextFieldActionPerformed
 
-    private void LiaisonConsommateurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LiaisonConsommateurButtonActionPerformed
+    private void ValiderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValiderButtonActionPerformed
         EstClientDeDAO estClientDeDAO = new EstClientDeDAO();
         
         EstClientDe estClientDe = new EstClientDe();
         estClientDe.setIDConsommateur(Integer.parseInt(IDConsommateurTextField.getText()));
         estClientDe.setIDPointDeVente(pointDeVente.getIdPointDeVente());
-        estClientDe.setNbPointsDeFidelite(Integer.parseInt(PointsDeFideliteTextField.getText()));
+        estClientDe.setNbPointsDeFidelite(estClientDeDAO.read(Integer.parseInt(IDConsommateurTextField.getText()), pointDeVente.getIdPointDeVente()).getNbPointsDeFidelite());
         
-        estClientDeDAO.create(estClientDe);
+        if (ChoixComboBox.getSelectedItem() == "Ajouter") {
+            System.out.println(estClientDe.getNbPointsDeFidelite());
+            System.out.println(estClientDe.getNbPointsDeFidelite() + Integer.parseInt(PointsDeFideliteTextField.getText()));
+            estClientDe.setNbPointsDeFidelite(estClientDe.getNbPointsDeFidelite() + Integer.parseInt(PointsDeFideliteTextField.getText()));
+        } else if (ChoixComboBox.getSelectedItem() == "Retirer") {
+            System.out.println(estClientDe.getNbPointsDeFidelite());
+            System.out.println(estClientDe.getNbPointsDeFidelite() - Integer.parseInt(PointsDeFideliteTextField.getText()));
+            estClientDe.setNbPointsDeFidelite(estClientDe.getNbPointsDeFidelite() - Integer.parseInt(PointsDeFideliteTextField.getText()));
+        }
+        
+        estClientDeDAO.update(estClientDe);
         
         JOptionPane.showMessageDialog(this, "Consommateur lié", "Succès", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
-    }//GEN-LAST:event_LiaisonConsommateurButtonActionPerformed
+    }//GEN-LAST:event_ValiderButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,14 +155,46 @@ public class LiaisonConsommateur extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LiaisonConsommateur.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionPointFidelite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LiaisonConsommateur.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionPointFidelite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LiaisonConsommateur.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionPointFidelite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LiaisonConsommateur.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionPointFidelite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -179,7 +231,7 @@ public class LiaisonConsommateur extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run(PointDeVente pointDeVente) {
-                new LiaisonConsommateur(pointDeVente).setVisible(true);
+                new GestionPointFidelite(pointDeVente).setVisible(true);
             }
 
             @Override
@@ -190,12 +242,14 @@ public class LiaisonConsommateur extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ChoixComboBox;
+    private javax.swing.JLabel ChoixLabel;
     private javax.swing.JLabel IDConsommateurLabel;
     private javax.swing.JTextField IDConsommateurTextField;
     private javax.swing.JLabel LabelRetour;
-    private javax.swing.JButton LiaisonConsommateurButton;
     private javax.swing.JLabel LogoRetour;
     private javax.swing.JLabel PointsDeFideliteLabel;
     private javax.swing.JTextField PointsDeFideliteTextField;
+    private javax.swing.JButton ValiderButton;
     // End of variables declaration//GEN-END:variables
 }
