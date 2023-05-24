@@ -20,9 +20,9 @@ public class ConsommateurDAO {
             statement.setString(1, consommateur.getNom());
             statement.setString(2, consommateur.getPrenom());
             statement.setString(3, consommateur.getAdresseMail());
-            statement.setString(5, consommateur.getAdresse());
-            statement.setInt(6, consommateur.getCodePostal());
-            statement.setString(7, consommateur.getVille());
+            statement.setString(4, consommateur.getAdresse());
+            statement.setInt(5, consommateur.getCodePostal());
+            statement.setString(6, consommateur.getVille());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -119,5 +119,34 @@ public class ConsommateurDAO {
         }
 
         return consommateurs;
+    }
+
+    // Méthode de lecture d'un consommateur à partir de son ID
+    public Consommateur getConsommateurWithMail(String adresseMailConsommateur) {
+        Consommateur consommateur = null;
+        String sql = "SELECT * FROM Consommateur WHERE AdresseMail = ?";
+
+        try (Connection connexion = connectDB.getConnection(); PreparedStatement statement = connexion.prepareStatement(sql)) {
+
+            statement.setString(1, adresseMailConsommateur);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    consommateur = new Consommateur(resultSet.getInt("IDConsommateur"),
+                            resultSet.getString("Nom"),
+                            resultSet.getString("Prenom"),
+                            resultSet.getString("AdresseMail"),
+                            resultSet.getString("Adresse"),
+                            resultSet.getInt("CodePostal"),
+                            resultSet.getString("Ville"));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return consommateur;
     }
 }

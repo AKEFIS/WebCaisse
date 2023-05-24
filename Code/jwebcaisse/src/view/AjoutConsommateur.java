@@ -204,14 +204,13 @@ public class AjoutConsommateur extends javax.swing.JFrame {
         try {
             ConsommateurDAO consommateurDAO = new ConsommateurDAO();
             consommateurDAO.create(consommateur);
-
-            // Fermeture de la fenêtre
-            JOptionPane.showMessageDialog(this, "Consommateur ajouté", "Succès", JOptionPane.INFORMATION_MESSAGE);
-            this.dispose();
         } catch (Exception e) {
             // Affichage d'une popup en cas d'erreur d'inscription
             JOptionPane.showMessageDialog(this, "Erreur lors de l'inscription : " + e.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
         }
+        // Fermeture de la fenêtre
+        JOptionPane.showMessageDialog(this, "Consommateur ajouté", "Succès", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
     }//GEN-LAST:event_AjoutConsommateurActionPerformed
 
     /**

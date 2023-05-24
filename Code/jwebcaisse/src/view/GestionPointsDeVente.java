@@ -86,7 +86,6 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
             JPanel panel = new JPanel();
             int IDPointDeVente = pointsDeVente.get(i).getIdPointDeVente();
             int IDFormuleFidelisation = pointsDeVente.get(i).getIdFormuleFidelisation();
-            System.out.println(IDFormuleFidelisation);
             int IDClient = pointsDeVente.get(i).getIdClient();
 
             panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -209,25 +208,21 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
 
             changerFormuleButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    // Créer une instance de la fenêtre "Inscription"
+                    // Créer une instance de la fenêtre "ChangerFormule"
                     ChangerFormule changerFormule = new ChangerFormule(client, pointsDeVente.get(index));
 
                     // Afficher la nouvelle fenêtre
                     changerFormule.setVisible(true);
-
-                    // Cacher la fenêtre "Accueil"
                 }
             });
 
             gestionClientsButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    // Créer une instance de la fenêtre "Inscription"
-                    ChangerFormule changerFormule = new ChangerFormule(client, pointsDeVente.get(index));
+                    // Créer une instance de la fenêtre "GestionConsommateurs"
+                    GestionConsommateurs gestionConsommateurs = new GestionConsommateurs(client, pointsDeVente.get(index));
 
                     // Afficher la nouvelle fenêtre
-                    changerFormule.setVisible(true);
-
-                    // Cacher la fenêtre "Accueil"
+                    gestionConsommateurs.setVisible(true);
                 }
             });
         }
