@@ -5,12 +5,15 @@ import technic.ConnectDB;
 import DAO.*;
 import java.util.List;
 import model.*;
+import view.Accueil;
 
 public class Jwebcaisse {
 
     public static void main(String[] args) {
         System.out.println("Build OK.");
-        
+        Accueil accueil = new Accueil();
+        accueil.setVisible(true);
+        /*
         // Test connection BDD
         ConnectDB db = new ConnectDB();
         Connection connection = db.getConnection();
@@ -42,12 +45,13 @@ public class Jwebcaisse {
         /* Test getAllPointDeVenteByIDClient()
         PointDeVenteDAO pointDeVenteDAO = new PointDeVenteDAO();
         List lst = pointDeVenteDAO.getAllPointDeVente();
-        System.out.println(lst);*/
+        System.out.println(lst);
         
         // Test getAllPointDeVenteByIDClient()
         PointDeVenteDAO pointDeVenteDAO = new PointDeVenteDAO();
         List lst = pointDeVenteDAO.getAllPointDeVenteByIDClient(1);
         System.out.println(lst);
+         */
     }
-    
+
 }
