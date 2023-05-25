@@ -53,7 +53,7 @@
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="Connection" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="AdresseMail" alignment="2" max="32767" attributes="0"/>
-                          <Component id="MotDePasse" alignment="2" pref="137" max="32767" attributes="0"/>
+                          <Component id="MotDePasse" alignment="2" max="32767" attributes="0"/>
                           <Component id="LogoUser" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -83,7 +83,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="AdresseMail">
           <Properties>
-            <Property name="text" type="java.lang.String" value="maxime.curtil35@gmail.com"/>
+            <Property name="text" type="java.lang.String" value="logan@gmail.com"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
@@ -92,7 +92,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="MotDePasse">
           <Properties>
-            <Property name="text" type="java.lang.String" value="root"/>
+            <Property name="text" type="java.lang.String" value="Btssio82300"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="Connection">

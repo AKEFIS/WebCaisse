@@ -47,7 +47,7 @@ public class Connection extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        AdresseMail.setText("maxime.curtil35@gmail.com");
+        AdresseMail.setText("logan@gmail.com");
         AdresseMail.setToolTipText("");
         AdresseMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,7 +55,7 @@ public class Connection extends javax.swing.JFrame {
             }
         });
 
-        MotDePasse.setText("root");
+        MotDePasse.setText("Btssio82300");
 
         Connection.setText("Connection");
         Connection.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +78,7 @@ public class Connection extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                         .addComponent(Connection)
                         .addComponent(AdresseMail)
-                        .addComponent(MotDePasse, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                        .addComponent(MotDePasse)
                         .addComponent(LogoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap()))
         );
@@ -99,7 +99,7 @@ public class Connection extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(260, 140, 151, 190);
+        jPanel2.setBounds(260, 140, 163, 190);
 
         LogoRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/escape_20.png"))); // NOI18N
         LogoRetour.setMaximumSize(new java.awt.Dimension(20, 22));
@@ -113,7 +113,7 @@ public class Connection extends javax.swing.JFrame {
 
         LabelRetour.setText("Retour");
         getContentPane().add(LabelRetour);
-        LabelRetour.setBounds(40, 10, 37, 16);
+        LabelRetour.setBounds(40, 10, 37, 15);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
