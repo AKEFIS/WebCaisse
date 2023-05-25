@@ -83,7 +83,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="AdresseMail">
           <Properties>
-            <Property name="text" type="java.lang.String" value="logan@gmail.com"/>
+            <Property name="text" type="java.lang.String" value="maxime@gmail.com"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
@@ -92,7 +92,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="MotDePasse">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Btssio82300"/>
+            <Property name="text" type="java.lang.String" value="root"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="Connection">

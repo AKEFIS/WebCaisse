@@ -3,7 +3,7 @@ import java.sql.*;
 
 public class ConnectDB {
     private Connection connection = null;
-    private final String url = "jdbc:mysql://172.28.36.18:3306/webcaisse_ap2";
+    private final String url = "jdbc:mysql://172.28.36.6:3306/webcaisse_ap2";
     private final String utilisateur = "mysql";
     private final String motDePasse = "mysql";
 

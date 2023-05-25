@@ -134,7 +134,7 @@ public class GestionPointFidelite extends javax.swing.JFrame {
         
         estClientDeDAO.update(estClientDe);
         
-        JOptionPane.showMessageDialog(this, "Consommateur lié", "Succès", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Points de fidélité mis à jour", "Succès", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
     }//GEN-LAST:event_ValiderButtonActionPerformed
 

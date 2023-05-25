@@ -47,7 +47,7 @@ public class Connection extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        AdresseMail.setText("logan@gmail.com");
+        AdresseMail.setText("maxime@gmail.com");
         AdresseMail.setToolTipText("");
         AdresseMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,7 +55,7 @@ public class Connection extends javax.swing.JFrame {
             }
         });
 
-        MotDePasse.setText("Btssio82300");
+        MotDePasse.setText("root");
 
         Connection.setText("Connection");
         Connection.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +99,7 @@ public class Connection extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(260, 140, 163, 190);
+        jPanel2.setBounds(260, 140, 182, 190);
 
         LogoRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/escape_20.png"))); // NOI18N
         LogoRetour.setMaximumSize(new java.awt.Dimension(20, 22));
@@ -113,7 +113,7 @@ public class Connection extends javax.swing.JFrame {
 
         LabelRetour.setText("Retour");
         getContentPane().add(LabelRetour);
-        LabelRetour.setBounds(40, 10, 37, 15);
+        LabelRetour.setBounds(40, 10, 37, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
