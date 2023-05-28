@@ -3,9 +3,9 @@ import java.sql.*;
 
 public class ConnectDB {
     private Connection connection = null;
-    private final String url = "jdbc:mysql://mysql-webcaisse.alwaysdata.net/webcaisse_ap2";
-    private final String utilisateur = "webcaisse";
-    private final String motDePasse = "Btssio82300";
+    private final String url = "jdbc:mysql://172.28.36.6/webcaisse_ap2";
+    private final String utilisateur = "mysql";
+    private final String motDePasse = "mysql";
 
     public Connection getConnection() {
         try {
