@@ -43,6 +43,8 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         UserName = new javax.swing.JLabel();
         Logout = new javax.swing.JButton();
+        LabelRetour = new javax.swing.JLabel();
+        LogoRetour = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 530));
@@ -62,7 +64,7 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
         UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         UserName.setText(client.getNom() + " " + client.getPrenom());
         getContentPane().add(UserName);
-        UserName.setBounds(30, 20, 110, 16);
+        UserName.setBounds(560, 20, 110, 16);
 
         Logout.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         Logout.setText("Se déconnecter");
@@ -72,7 +74,21 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Logout);
-        Logout.setBounds(30, 40, 110, 20);
+        Logout.setBounds(560, 40, 110, 20);
+
+        LabelRetour.setText("Retour");
+        getContentPane().add(LabelRetour);
+        LabelRetour.setBounds(40, 10, 37, 16);
+
+        LogoRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/escape_20.png"))); // NOI18N
+        LogoRetour.setMaximumSize(new java.awt.Dimension(20, 22));
+        LogoRetour.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoRetourMouseClicked(evt);
+            }
+        });
+        getContentPane().add(LogoRetour);
+        LogoRetour.setBounds(10, 10, 20, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -234,6 +250,10 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_LogoutActionPerformed
 
+    private void LogoRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoRetourMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_LogoRetourMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -338,6 +358,8 @@ public class GestionPointsDeVente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelRetour;
+    private javax.swing.JLabel LogoRetour;
     private javax.swing.JButton Logout;
     private javax.swing.JLabel UserName;
     private javax.swing.JLabel jLabel1;

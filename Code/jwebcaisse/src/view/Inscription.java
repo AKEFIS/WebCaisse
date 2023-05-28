@@ -247,8 +247,6 @@ public class Inscription extends javax.swing.JFrame {
     }//GEN-LAST:event_VilleSiegeSocialActionPerformed
 
     private void LogoRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoRetourMouseClicked
-        Accueil accueil = new Accueil();
-        accueil.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LogoRetourMouseClicked
 

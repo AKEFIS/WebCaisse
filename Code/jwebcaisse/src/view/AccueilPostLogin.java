@@ -102,13 +102,11 @@ public class AccueilPostLogin extends javax.swing.JFrame {
     private void GestionPointsDeVenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionPointsDeVenteActionPerformed
         GestionPointsDeVente gestionPointsDeVente = new GestionPointsDeVente(client);
         gestionPointsDeVente.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_GestionPointsDeVenteActionPerformed
 
     private void AjoutPointDeVenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjoutPointDeVenteActionPerformed
         AjoutPointDeVente ajoutPointDeVente = new AjoutPointDeVente(client);
         ajoutPointDeVente.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_AjoutPointDeVenteActionPerformed
 
     /**

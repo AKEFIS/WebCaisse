@@ -123,8 +123,6 @@ public class Connection extends javax.swing.JFrame {
     }//GEN-LAST:event_AdresseMailActionPerformed
 
     private void LogoRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoRetourMouseClicked
-        Accueil accueil = new Accueil();
-        accueil.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LogoRetourMouseClicked
 

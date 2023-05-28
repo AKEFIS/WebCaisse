@@ -95,8 +95,6 @@ public class LiaisonConsommateur extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LogoRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoRetourMouseClicked
-        Accueil accueil = new Accueil();
-        accueil.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LogoRetourMouseClicked
 

@@ -183,8 +183,6 @@ public class AjoutConsommateur extends javax.swing.JFrame {
     }//GEN-LAST:event_AdresseActionPerformed
 
     private void LogoRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoRetourMouseClicked
-        Accueil accueil = new Accueil();
-        accueil.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LogoRetourMouseClicked
 

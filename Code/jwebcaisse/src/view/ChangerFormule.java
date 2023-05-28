@@ -44,7 +44,6 @@ public class ChangerFormule extends javax.swing.JFrame {
         Fonctionnalité1F1 = new javax.swing.JLabel();
         Fonctionnalité3F1 = new javax.swing.JLabel();
         Fonctionnalité2F1 = new javax.swing.JLabel();
-        Retour = new javax.swing.JButton();
         Formule3 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
@@ -63,6 +62,8 @@ public class ChangerFormule extends javax.swing.JFrame {
         Fonctionnalité2F2 = new javax.swing.JLabel();
         UserName = new javax.swing.JLabel();
         Logout = new javax.swing.JButton();
+        LabelRetour = new javax.swing.JLabel();
+        LogoRetour = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 530));
@@ -137,13 +138,6 @@ public class ChangerFormule extends javax.swing.JFrame {
                 .addComponent(SelectionF1)
                 .addContainerGap(42, Short.MAX_VALUE))
         );
-
-        Retour.setText("Retour");
-        Retour.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RetourActionPerformed(evt);
-            }
-        });
 
         jTextArea5.setColumns(10);
         jTextArea5.setLineWrap(true);
@@ -296,6 +290,16 @@ public class ChangerFormule extends javax.swing.JFrame {
             }
         });
 
+        LabelRetour.setText("Retour");
+
+        LogoRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/escape_20.png"))); // NOI18N
+        LogoRetour.setMaximumSize(new java.awt.Dimension(20, 22));
+        LogoRetour.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoRetourMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -309,7 +313,9 @@ public class ChangerFormule extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Retour)
+                        .addComponent(LogoRetour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(LabelRetour, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -324,15 +330,16 @@ public class ChangerFormule extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Retour)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(UserName)
-                        .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(UserName)
+                    .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogoRetour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelRetour))
+                .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Formule1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(12, Short.MAX_VALUE))
+                        .addContainerGap(24, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,10 +357,6 @@ public class ChangerFormule extends javax.swing.JFrame {
         pointDeVenteDAO.update(pointDeVente);
         this.dispose();
     }//GEN-LAST:event_SelectionF1ActionPerformed
-
-    private void RetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetourActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RetourActionPerformed
 
     private void SelectionF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectionF2ActionPerformed
         PointDeVenteDAO pointDeVenteDAO = new PointDeVenteDAO();
@@ -374,6 +377,10 @@ public class ChangerFormule extends javax.swing.JFrame {
         accueil.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LogoutActionPerformed
+
+    private void LogoRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoRetourMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_LogoRetourMouseClicked
 
     /**
      * @param args the command line arguments
@@ -438,8 +445,9 @@ public class ChangerFormule extends javax.swing.JFrame {
     private javax.swing.JPanel Formule1;
     private javax.swing.JPanel Formule2;
     private javax.swing.JPanel Formule3;
+    private javax.swing.JLabel LabelRetour;
+    private javax.swing.JLabel LogoRetour;
     private javax.swing.JButton Logout;
-    private javax.swing.JButton Retour;
     private javax.swing.JToggleButton SelectionF1;
     private javax.swing.JToggleButton SelectionF2;
     private javax.swing.JToggleButton SelectionF3;

@@ -44,6 +44,8 @@ public class GestionConsommateurs extends javax.swing.JFrame {
         chercherConsommaterButton = new javax.swing.JButton();
         voirMesConsommateursButton = new javax.swing.JButton();
         gestionPointsDeFideliteButton = new javax.swing.JButton();
+        LogoRetour = new javax.swing.JLabel();
+        LabelRetour = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 530));
@@ -87,32 +89,55 @@ public class GestionConsommateurs extends javax.swing.JFrame {
             }
         });
 
+        LogoRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/escape_20.png"))); // NOI18N
+        LogoRetour.setMaximumSize(new java.awt.Dimension(20, 22));
+        LogoRetour.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoRetourMouseClicked(evt);
+            }
+        });
+
+        LabelRetour.setText("Retour");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(gestionPointsDeFideliteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(chercherIDLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ajoutConsommateurButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(adresseMailConsommateurTextField)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chercherConsommaterButton))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(chercherIDLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ajoutConsommateurButton, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(adresseMailConsommateurTextField)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chercherConsommaterButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(liaisonConsommateurButton, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(voirMesConsommateursButton, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(liaisonConsommateurButton, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(voirMesConsommateursButton, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gestionPointsDeFideliteButton)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LogoRetour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(LabelRetour, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogoRetour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelRetour))
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chercherIDLabel)
                     .addComponent(adresseMailConsommateurTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -124,7 +149,7 @@ public class GestionConsommateurs extends javax.swing.JFrame {
                     .addComponent(voirMesConsommateursButton))
                 .addGap(18, 18, 18)
                 .addComponent(gestionPointsDeFideliteButton)
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,6 +198,10 @@ public class GestionConsommateurs extends javax.swing.JFrame {
         gestionPointFidelite.setVisible(true);
     }//GEN-LAST:event_gestionPointsDeFideliteButtonActionPerformed
 
+    private void LogoRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoRetourMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_LogoRetourMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -217,6 +246,8 @@ public class GestionConsommateurs extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelRetour;
+    private javax.swing.JLabel LogoRetour;
     private javax.swing.JTextField adresseMailConsommateurTextField;
     private javax.swing.JButton ajoutConsommateurButton;
     private javax.swing.JButton chercherConsommaterButton;
