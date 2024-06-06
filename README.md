@@ -1,2 +1,1 @@
-# WebCaisse
- Second projet d'AP
+Second projet d'Atelier Professionalisant de seconde année de BTS SIO.
